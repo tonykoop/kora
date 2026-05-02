@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Excel temp files
+~$*.xlsx
+~$*.xlsm
+
+# CAD scratch
+*.bak
+*.bak1
+*.bak2
+
+# Build / output
+build/
+dist/
+*.egg-info/
+
+# Wolfram
+*.cdf.tmp
