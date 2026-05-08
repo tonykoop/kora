@@ -1,0 +1,4 @@
+member_id,role,status,bowl_diameter_in,bowl_depth_in,neck_length_in,string_count,string_length_min_in,string_length_max_in,target_tension_lbf,release_notes
+KORA-21-ROOT,root prototype,private review,20.3,9.8,51.2,21,8.7,31.1,8-14 derived estimate,Main workbook-driven build; not public-release ready until cultural and safety reviews pass.
+KORA-21-MULE,low-tension test mule,planned,20.3,9.8,51.2,21,8.7,31.1,4-7 derived estimate,Use same geometry with reduced tension to validate bridge/head/neck behavior before full schedule.
+KORA-13-BRIDGE-STUDY,bridge study,planned,20.3,9.8,51.2,13,12.0,31.1,5-9 derived estimate,Partial stringing for bridge-rock and head-deflection tests; not a performance instrument.

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <rect width="900" height="520" fill="#fffdf7"/>
+  <text x="32" y="44" font-family="Arial" font-size="24" font-weight="700">Bridge Geometry Study</text>
+  <text x="32" y="74" font-family="Arial" font-size="15">Source: workbook bridge inputs. Prototype drawing only.</text>
+  <polygon points="170,110 260,110 310,430 120,430" fill="#6b4628" stroke="#26180d" stroke-width="4"/>
+  <rect x="105" y="430" width="220" height="32" fill="#c4a36d" stroke="#26180d" stroke-width="3"/>
+  <g stroke="#eee" stroke-width="2">
+    <line x1="177" y1="120" x2="135" y2="420"/>
+    <line x1="185" y1="120" x2="151" y2="420"/>
+    <line x1="193" y1="120" x2="167" y2="420"/>
+    <line x1="201" y1="120" x2="183" y2="420"/>
+    <line x1="209" y1="120" x2="199" y2="420"/>
+    <line x1="217" y1="120" x2="215" y2="420"/>
+    <line x1="225" y1="120" x2="231" y2="420"/>
+    <line x1="233" y1="120" x2="247" y2="420"/>
+    <line x1="241" y1="120" x2="263" y2="420"/>
+    <line x1="249" y1="120" x2="279" y2="420"/>
+  </g>
+  <line x1="370" y1="110" x2="370" y2="430" stroke="#111" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="390" y="280" font-family="Arial" font-size="16">6.0 in height input</text>
+  <text x="500" y="145" font-family="Arial" font-size="18" font-weight="700">Validation needs</text>
+  <text x="500" y="180" font-family="Arial" font-size="15">- Confirm actual split-bank notch layout.</text>
+  <text x="500" y="208" font-family="Arial" font-size="15">- Test foot pads before full tension.</text>
+  <text x="500" y="236" font-family="Arial" font-size="15">- Check bridge rocking under asymmetric load.</text>
+  <text x="500" y="264" font-family="Arial" font-size="15">- Round/polish all string contact edges.</text>
+  <text x="500" y="292" font-family="Arial" font-size="15">- Do not cut final bridge from protected species.</text>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+    </marker>
+  </defs>
+</svg>

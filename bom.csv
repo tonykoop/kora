@@ -1,0 +1,17 @@
+item_id,subsystem,part_name,qty,unit,material_spec,dimensions_or_spec,make_buy,estimated_cost,cost_basis,risk_note
+BOWL-001,resonator,segmented bowl staves,168,pcs,straight-grained hardwood strips,12 segments per ring x 14 rings x 0.75 in ring height,make,120,planning estimate from hardwood stock allowance,Species and wall thickness affect tone and strength.
+BOWL-002,resonator,rim ring segments,16,pcs,hardwood,20.3 in diameter rim system with 11.25 deg miter,make,25,planning estimate,Rim must avoid head tearing and provide even bearing.
+BOWL-003,resonator,head membrane,1,ea,ethically sourced goat/calf hide or synthetic substitute,20.3 in head plus wrap allowance,buy,80,planning estimate,Material choice has cultural and ethical implications.
+BOWL-004,resonator,head tacks or lacing hardware,1,set,stainless/brass tacks or cord system,sized to rim and head method,buy,35,planning estimate,Fastener spacing must not split rim.
+NECK-001,structure,through-neck blank,1,ea,hard maple/walnut/mahogany or equivalent straight-grain hardwood,51.2 x 2.0 x 0.75 in interpreted minimum,make,55,planning estimate,Primary load-bearing member.
+NECK-002,structure,tail anchor ring/bar,1,ea,steel or brass with rounded contact surfaces,sized for 21 strings plus safety margin,buy,30,planning estimate,Anchor failure is high-energy risk.
+BRDG-001,bridge,notched bridge blank,1,ea,dense hardwood with replaceable saddle cap,6.0 in high x 2.5 in wide x 0.75 in thick interpreted,make,20,planning estimate,Bridge rocking and head denting are primary risks.
+BRDG-002,bridge,bridge foot pad or cushion,1,ea,leather/cork/felt test stack,footprint derived estimate,buy,12,planning estimate,Needed to distribute load into membrane.
+HAND-001,ergonomics,player hand posts,2,ea,hardwood dowels or turned handles,diameter and reach to confirm from player mockup,make,18,planning estimate,Must not weaken bowl/head joint.
+STR-001,strings,nylon treble/mid strings,17,lengths,nylon monofilament or harp string gauges,0.015-0.031 in workbook-calculated diameter range,buy,45,planning estimate,Current treble percent-break is too high; revise before full tension.
+STR-002,strings,wound bass strings,4,lengths,wound nylon/metal-core equivalent density study,0.020-0.024 in workbook-calculated effective range,buy,60,planning estimate,Effective density model must be matched to real strings.
+ELEC-001,electronics,piezo pickup element,1,ea,passive piezo disk or under-bridge film,prototype only after acoustic tests,buy,15,planning estimate,Do not install before bridge/head pressure is understood.
+ELEC-002,electronics,output jack and cable hardware,1,set,1/4 in jack with shielded lead,side or tail location to be confirmed,buy,12,planning estimate,Drilling location must avoid stress path.
+JIG-001,fixtures,miter sled setup,1,set,table saw sled with 15 deg and 11.25 deg references,for bowl and rim segments,make,30,planning estimate,Fixture error multiplies across 184 segments.
+JIG-002,fixtures,bridge alignment template,1,ea,laser-cut acrylic or plywood,21 slots at about 0.273 in spacing,make,10,planning estimate,Template must match final bridge/string bank layout.
+FIN-001,finish,finish system,1,set,oil/shellac/waterborne finish compatible with hide/head contact,shop-selected,buy,35,planning estimate,Finish must not contaminate glue or head bearing surfaces.

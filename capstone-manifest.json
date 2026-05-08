@@ -1,0 +1,46 @@
+{
+  "instrument": "Kora-inspired 21-string prototype",
+  "packet_mode": "root",
+  "status": "private_review",
+  "source_workbook": "kora-design-table.xlsx",
+  "generated_for": "v4.3 challenge run",
+  "artifacts": [
+    "README.md",
+    "design.md",
+    "family-spec.csv",
+    "bom.csv",
+    "sourcing.csv",
+    "cut-list.csv",
+    "validation.csv",
+    "assembly-manual.md",
+    "supplier-rfq.md",
+    "drawing-brief.md",
+    "visual-bom-brief.md",
+    "wolfram-starter.wl",
+    "risks.md",
+    "photo-shotlist.md",
+    "capstone-deck.md",
+    "capstone-deck.pptx",
+    "print-packet.md",
+    "print-packet.html",
+    "print-packet.pdf",
+    "site/index.html",
+    "drawings/kora-overview.svg",
+    "drawings/bowl-ring-stack.svg",
+    "drawings/bridge-geometry.svg",
+    "cad/kora-parametric-brief.md",
+    "cad/kora-placeholder.scad",
+    "cnc/cnc-plan.md"
+  ],
+  "release_gate": {
+    "public_candidate": false,
+    "required_before_public": [
+      "cultural provenance review",
+      "string safety redesign",
+      "neck/tail proof-load validation",
+      "bridge/head staged-load validation",
+      "measured prototype data",
+      "owned or permission-cleared visuals"
+    ]
+  }
+}

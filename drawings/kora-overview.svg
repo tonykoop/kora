@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" width="1100" height="650">
+  <rect width="1100" height="650" fill="#fffdf7"/>
+  <text x="40" y="50" font-family="Arial" font-size="26" font-weight="700">Kora-Inspired Prototype - Overview Schematic</text>
+  <text x="40" y="82" font-family="Arial" font-size="16">Units: inches. Source: kora-design-table.xlsx. Not CNC-ready.</text>
+  <line x1="270" y1="90" x2="270" y2="590" stroke="#332417" stroke-width="18"/>
+  <ellipse cx="270" cy="430" rx="190" ry="115" fill="#d3ad70" stroke="#3b2b1d" stroke-width="6"/>
+  <ellipse cx="270" cy="430" rx="162" ry="92" fill="none" stroke="#7f5d35" stroke-width="2" stroke-dasharray="8 8"/>
+  <polygon points="375,210 410,420 375,575 335,420" fill="#5a3b20" stroke="#2a1b0f" stroke-width="4"/>
+  <rect x="158" y="375" width="28" height="110" rx="14" fill="#4e351f"/>
+  <rect x="354" y="375" width="28" height="110" rx="14" fill="#4e351f"/>
+  <line x1="270" y1="90" x2="390" y2="220" stroke="#777" stroke-width="1"/>
+  <line x1="270" y1="590" x2="390" y2="565" stroke="#777" stroke-width="1"/>
+  <line x1="145" y1="375" x2="390" y2="230" stroke="#777" stroke-width="1"/>
+  <line x1="145" y1="485" x2="390" y2="560" stroke="#777" stroke-width="1"/>
+  <line x1="80" y1="430" x2="460" y2="430" stroke="#111" stroke-width="1" marker-start="url(#m)" marker-end="url(#m)"/>
+  <text x="205" y="414" font-family="Arial" font-size="16">20.3 dia</text>
+  <line x1="500" y1="90" x2="500" y2="590" stroke="#111" stroke-width="1" marker-start="url(#m)" marker-end="url(#m)"/>
+  <text x="515" y="345" font-family="Arial" font-size="16">51.2 neck interpreted</text>
+  <line x1="430" y1="210" x2="430" y2="575" stroke="#111" stroke-width="1" marker-start="url(#m)" marker-end="url(#m)"/>
+  <text x="445" y="400" font-family="Arial" font-size="16">6.0 bridge height input</text>
+  <text x="610" y="160" font-family="Arial" font-size="20" font-weight="700">Critical notes</text>
+  <text x="610" y="198" font-family="Arial" font-size="16">- Continuous neck/spine required.</text>
+  <text x="610" y="226" font-family="Arial" font-size="16">- Bridge foot is load-critical.</text>
+  <text x="610" y="254" font-family="Arial" font-size="16">- String schedule needs safety revision.</text>
+  <text x="610" y="282" font-family="Arial" font-size="16">- Segmented bowl is a prototype substitute.</text>
+  <text x="610" y="310" font-family="Arial" font-size="16">- Cultural review required before public release.</text>
+  <defs>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#111"/>
+    </marker>
+  </defs>
+</svg>

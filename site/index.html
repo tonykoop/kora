@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kora-Inspired Prototype</title>
+  <style>
+    :root { --ink: #191815; --paper: #faf8f2; --line: #8a7d67; --accent: #2f6f6d; --warn: #8f3d2d; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 17px/1.55 Georgia, "Times New Roman", serif; }
+    header { padding: 48px 24px 32px; background: #e7dfd1; border-bottom: 4px solid var(--accent); }
+    main { max-width: 980px; margin: 0 auto; padding: 28px 20px 56px; }
+    h1, h2, h3 { font-family: Arial, sans-serif; line-height: 1.1; letter-spacing: 0; }
+    h1 { max-width: 980px; margin: 0 auto; font-size: clamp(32px, 7vw, 64px); }
+    header p { max-width: 980px; margin: 12px auto 0; font-size: 20px; }
+    section { margin: 34px 0; }
+    .notice { border-left: 6px solid var(--warn); background: #fff; padding: 14px 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+    th, td { border: 1px solid #c9bea8; padding: 8px; text-align: left; vertical-align: top; }
+    th { background: #ded3bd; }
+    svg { width: 100%; height: auto; background: #fff; border: 1px solid #c9bea8; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kora-Inspired 21-String Prototype</h1>
+    <p>Private engineering build packet for a segmented-bowl hybrid instrument. Cultural and safety review required before public release.</p>
+  </header>
+  <main>
+    <section class="notice">
+      <strong>Private-review status:</strong> this page is a build-log draft, not a publishable cultural or construction authority.
+    </section>
+    <section>
+      <h2>What This Is</h2>
+      <p>This repo documents a 21-string kora-inspired prototype using a parametric spreadsheet, structured shop files, and conservative validation gates. The goal is to learn from string scaling, bridge loading, resonator behavior, and player ergonomics without overclaiming tradition or acoustic certainty.</p>
+      <p>The design source is <code>kora-design-table.xlsx</code>. The current packet should stay private until cultural wording, string safety, bridge stability, and neck/tail proof-load checks are complete.</p>
+    </section>
+    <section>
+      <h2>The Design</h2>
+      <svg viewBox="0 0 900 360" role="img" aria-label="Schematic kora overview">
+        <rect x="0" y="0" width="900" height="360" fill="#fffaf0"/>
+        <ellipse cx="250" cy="220" rx="160" ry="95" fill="#d0b079" stroke="#473621" stroke-width="5"/>
+        <line x1="250" y1="45" x2="250" y2="325" stroke="#402d19" stroke-width="14"/>
+        <polygon points="330,110 360,220 330,300 305,220" fill="#5e4024" stroke="#2d1e12" stroke-width="3"/>
+        <line x1="250" y1="45" x2="345" y2="115" stroke="#777" stroke-width="1"/>
+        <line x1="250" y1="325" x2="345" y2="295" stroke="#777" stroke-width="1"/>
+        <line x1="160" y1="190" x2="345" y2="125" stroke="#777" stroke-width="1"/>
+        <line x1="160" y1="250" x2="345" y2="285" stroke="#777" stroke-width="1"/>
+        <text x="450" y="90" font-family="Arial" font-size="22">Workbook anchors</text>
+        <text x="450" y="128" font-family="Arial" font-size="17">Bowl: 20.3 in diameter x 9.8 in deep</text>
+        <text x="450" y="158" font-family="Arial" font-size="17">Neck: 51.2 in interpreted length</text>
+        <text x="450" y="188" font-family="Arial" font-size="17">Bridge: 6.0 in height, test foot required</text>
+        <text x="450" y="218" font-family="Arial" font-size="17">Strings: 8.7-31.1 in, tension schedule needs redesign</text>
+        <text x="450" y="248" font-family="Arial" font-size="17">Bowl: 14 rings, 168 segments, 15 deg miter</text>
+      </svg>
+    </section>
+    <section>
+      <h2>Known Risks</h2>
+      <ul>
+        <li>Current treble string schedule is too close to break strength.</li>
+        <li>Bridge/head pressure and bridge rocking require staged testing.</li>
+        <li>Neck and tail anchor must be proof-loaded before full tension.</li>
+        <li>Public language requires cultural review.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Resources</h2>
+      <table>
+        <tr><th>File</th><th>Purpose</th></tr>
+        <tr><td>design.md</td><td>Design source, assumptions, provenance notes.</td></tr>
+        <tr><td>validation.csv</td><td>Measurement and release gates.</td></tr>
+        <tr><td>risks.md</td><td>Red-team risk register.</td></tr>
+        <tr><td>assembly-manual.md</td><td>Staged shop sequence.</td></tr>
+      </table>
+    </section>
+    <footer>
+      <p>License: CC BY 4.0. Public release pending review.</p>
+    </footer>
+  </main>
+</body>
+</html>
