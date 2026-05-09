@@ -28,6 +28,7 @@ Before public release, review the provenance language with a knowledgeable cultu
 - `print-packet.md`, `print-packet.html` - print-friendly packet for shop review.
 - `site/index.html` - self-contained public build-log draft, currently marked private-review.
 - `drawings/`, `cad/`, `cnc/`, `wolfram/` - lightweight technical placeholders and briefs.
+- `review-evidence.md` - PR review evidence, local checks, and readiness summary.
 
 ## Workbook Snapshot
 
@@ -60,6 +61,10 @@ This is a conservative hybrid prototype packet:
 - Hide or synthetic head choices are treated as separate resonance and ethics/sourcing decisions.
 - A piezo pickup path is planned as optional and should be mechanically isolated from the head until acoustic behavior is understood.
 - The neck/body joint, bridge foot, tail anchoring, and head support are treated as primary safety-critical assemblies.
+
+## Readiness
+
+Status: L2 private-review packet. The docs are broad enough for design review, but the packet should not be treated as L3 until cultural review, string-safety revisions, bridge/head proof testing, and measured prototype data are complete.
 
 ## License
 
