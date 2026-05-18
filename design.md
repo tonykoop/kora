@@ -130,7 +130,7 @@ The schedule below is calculated from the workbook formula pattern and current c
 | 20 | F3 | 53 | 174.61 | 30.50 | Wound | 13.70 | 0.0239 | 68.4 |
 | 21 | F3 | 53 | 174.61 | 31.10 | Wound | 14.00 | 0.0237 | 71.1 |
 
-Action: reduce treble target tension, lengthen treble scale, change material, or revise pitch assignment before stringing to full pitch.
+Action: reduce treble target tension, lengthen treble scale, change material, or revise pitch assignment before stringing to full pitch. `string-break-risk.csv` is the row-by-row blocker register for this schedule, and `string-validation.md` defines the full-stringing hold points.
 
 ## Design Assumptions
 
