@@ -12,6 +12,8 @@
     "sourcing.csv",
     "cut-list.csv",
     "validation.csv",
+    "string-validation.md",
+    "string-break-risk.csv",
     "assembly-manual.md",
     "supplier-rfq.md",
     "drawing-brief.md",
@@ -37,6 +39,7 @@
     "required_before_public": [
       "cultural provenance review",
       "string safety redesign",
+      "string break-risk register cleared",
       "neck/tail proof-load validation",
       "bridge/head staged-load validation",
       "measured prototype data",
