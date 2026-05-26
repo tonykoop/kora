@@ -18,6 +18,7 @@ Before public release, review the provenance language with a knowledgeable cultu
 - `sourcing.csv` - spec-first sourcing table with live price and availability intentionally not verified.
 - `cut-list.csv` - rough/final dimensions for segmented bowl, neck, bridge, handles, fixtures, and templates.
 - `validation.csv` - dimensional, string-tension, resonance, bridge, joint, safety, and cultural-review checks.
+- `string-validation.md` and `string-break-risk.csv` - explicit string break-risk blocker and row-by-row full-stringing gates.
 - `assembly-manual.md` - staged build method with hold points before full tension.
 - `supplier-rfq.md` - copy/paste RFQ drafts for wood, hide/head material, strings, metalwork, and pickup parts.
 - `drawing-brief.md` and `visual-bom-brief.md` - drawing and visual-resource requirements.
@@ -45,6 +46,8 @@ Current interpreted values from `kora-design-table.xlsx`:
 - Bridge height: 6.0 in, bridge width/thickness inputs around 0.75 and 2.5 in, string spacing about 0.273 in by formula.
 
 The current string schedule computes some treble strings at high percent of nylon break strength under the ideal round-string model. Treat the schedule as a design-study table, not a purchase-ready string prescription.
+
+Round 33C/D string validation adds `string-break-risk.csv`: eight nylon rows currently model above the 70 percent prototype break target, nylon string 9 sits at 69.3 percent, and the wound-bass rows still need manufacturer unit-weight or measured mass-per-length data. Full stringing remains blocked until those rows are revised and rechecked.
 
 ## Cultural Provenance Notes
 
