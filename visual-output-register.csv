@@ -1,0 +1,12 @@
+artifact_id,path,artifact_kind,role,authority,derived_from,dimension_claim,fabrication_required,notes
+DT-001,kora-design-table.xlsx,design_table,design_table,fabrication,,derived_from_authority,true,Workbook authority: bowl diameter/depth, neck length, string lengths, bridge dims, string spacing.
+FS-001,family-spec.csv,family_spec,family_spec,fabrication,kora-design-table.xlsx,derived_from_authority,true,Parametric family anchors derived from design table.
+BOM-001,bom.csv,bom,bom,fabrication,kora-design-table.xlsx,derived_from_authority,true,Make/buy material and hardware list.
+SRC-001,sourcing.csv,sourcing,sourcing,fabrication,,derived_from_authority,true,Spec-first sourcing; live prices not verified.
+CUT-001,cut-list.csv,cut_list,cut_list,fabrication,kora-design-table.xlsx,derived_from_authority,true,Bowl ring, neck, bridge, handle, fixture, and template dimensions.
+MT-001,validation.csv,measurement_template,measurement_template,fabrication,,derived_from_authority,true,Dimensional, string-tension, resonance, bridge, joint, safety, and cultural-review gates.
+STV-001,string-validation.md,measurement_template,measurement_template,fabrication,,derived_from_authority,false,String break-risk validation gates.
+SBR-001,string-break-risk.csv,measurement_template,measurement_template,fabrication,,derived_from_authority,true,String break-risk register.
+DRW-001,drawings/README.md,drawing,drawing_stub,pending_measurement,,placeholder,false,Drawing directory stub. No DXF/SVG yet.
+WL-001,wolfram-starter.wl,wolfram_source,wolfram,derived_preview,,source_only,false,Wolfram source scaffold; source-only at L2 until executed.
+CAD-001,cad/kora-placeholder.scad,cad_source,cad_authoring,pending_measurement,kora-design-table.xlsx,scaffold_dimensions,false,Parametric OpenSCAD placeholder. Not fabrication authority until reviewed.
