@@ -1,5 +1,7 @@
 # Kora Root-Mode Build Packet
 
+**Status: L2 V5 build-packet candidate**
+
 This repo is a root-mode v4 instrument packet for a 21-string kora-inspired build. It expands the original bare design-table scaffold into a shop-facing packet with design notes, BOM, sourcing assumptions, cut list, validation plan, drawing briefs, RFQ copy, public-site draft, capstone outline, and print packet.
 
 The design source is `kora-design-table.xlsx`. The workbook currently provides the main parametric anchors: bowl diameter and depth, neck length, string lengths, target string tension ramp, nylon density, wound-string density factor, segmented-bowl ring construction, rim geometry, bridge dimensions, and string spacing. Several cell meanings are inferred from formulas rather than workbook labels, so the generated documents mark those assumptions openly.
