@@ -24,7 +24,7 @@ Before public release, review the provenance language with a knowledgeable cultu
 - `assembly-manual.md` - staged build method with hold points before full tension.
 - `supplier-rfq.md` - copy/paste RFQ drafts for wood, hide/head material, strings, metalwork, and pickup parts.
 - `drawing-brief.md` and `visual-bom-brief.md` - drawing and visual-resource requirements.
-- `wolfram-starter.wl` - starter calculations for string schedule, segmented bowl geometry, and safety plots.
+- `kora-starter.wl` - starter calculations for string schedule, segmented bowl geometry, and safety plots.
 - `risks.md` - red-team concerns and release controls.
 - `photo-shotlist.md` - shop and documentation shot list.
 - `capstone-deck.md`, `capstone-manifest.json` - presentation outline and artifact inventory.

@@ -8,5 +8,5 @@ MT-001,validation.csv,measurement_template,measurement_template,fabrication,,der
 STV-001,string-validation.md,measurement_template,measurement_template,fabrication,,derived_from_authority,false,String break-risk validation gates.
 SBR-001,string-break-risk.csv,measurement_template,measurement_template,fabrication,,derived_from_authority,true,String break-risk register.
 DRW-001,drawings/README.md,drawing,drawing_stub,pending_measurement,,placeholder,false,Drawing directory stub. No DXF/SVG yet.
-WL-001,wolfram-starter.wl,wolfram_source,wolfram,derived_preview,,source_only,false,Wolfram source scaffold; source-only at L2 until executed.
+WL-001,kora-starter.wl,wolfram_source,wolfram,derived_preview,,source_only,false,Wolfram source scaffold; source-only at L2 until executed.
 CAD-001,cad/kora-placeholder.scad,cad_source,cad_authoring,pending_measurement,kora-design-table.xlsx,scaffold_dimensions,false,Parametric OpenSCAD placeholder. Not fabrication authority until reviewed.

@@ -2,7 +2,7 @@
 
 Two notebooks live in this folder + repo root:
 
-- `wolfram-starter.wl` (repo root) — first-pass string and segmented-bowl checks against the workbook string schedule. Workbook-driven.
+- `kora-starter.wl` (repo root) — first-pass string and segmented-bowl checks against the workbook string schedule. Workbook-driven.
 - `wolfram/kora-acoustic-design.wl` — physics-bounded acoustic design notebook. Computes Helmholtz air resonance, membrane modes, bridge placement coupling, and string schedule from the SolidWorks masterLayout's measured geometry. Use this to sweep chord factor, sound hole size, and bridge offset before committing the masterLayout.
 
 ## Running in Wolfram Cloud
