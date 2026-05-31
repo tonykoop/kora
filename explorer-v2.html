@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kora · Studio Explorer (v2) · Heifer Zephyr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1410; --ink-2:#3D2817; --ink-3:#6B5E4D;
+  --rule:#E0D6C5; --rule-soft:#EFE8D7;
+  --paper:#FBF8EE; --paper-2:#FFFFFF; --paper-3:#F4ECDB;
+  --accent:#1E3A8A; --accent-soft:#E6EAF5;
+  --gold:#D4A017; --gold-soft:#FCEFC6;
+  --cedar:#B98B47;
+  --ok:#2E7D32; --warn:#C89220; --block:#A03A2A;
+  --fam-string:#8B5A1F; --fam-string-soft:#F5E9D2;
+  --serif:"Fraunces","Source Serif Pro",Georgia,serif;
+  --ui:"Inter","Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",Menlo,Consolas,monospace;
+  --italic-serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
+  --radius-sm:4px; --radius:6px;
+  --shadow:0 1px 0 rgba(31,26,20,0.04), 0 8px 24px -12px rgba(31,26,20,0.18);
+}
+[data-theme="dark"]{
+  --ink:#F4EEDC; --ink-2:#E8DEC4; --ink-3:#A89E89;
+  --rule:#3A2F22; --rule-soft:#2E2519;
+  --paper:#1B1510; --paper-2:#221A12; --paper-3:#2A2117;
+  --accent:#7AA3FF; --accent-soft:#1C2440;
+  --gold:#E8C064; --gold-soft:#3A2F0F;
+  --fam-string-soft:#33260F;
+  --shadow:0 1px 0 rgba(0,0,0,0.5), 0 12px 32px -16px rgba(0,0,0,0.7);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:var(--ui);font-size:14.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11";
+  transition:background 200ms,color 200ms}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--ink-2)}
+code,kbd{font-family:var(--mono);font-size:0.86em}
+
+/* ----- App bar ----- */
+.appbar{position:sticky;top:0;z-index:30;
+  background:rgba(27,21,16,0.96);backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
+  color:var(--paper);border-bottom:1px solid rgba(212,160,23,0.35);
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;padding:14px 26px}
+[data-theme="dark"] .appbar{background:rgba(10,7,4,0.96)}
+.brand{display:flex;align-items:baseline;gap:14px}
+.wordmark em{font-family:var(--italic-serif);font-style:italic;
+  font-size:24px;color:var(--gold);letter-spacing:0.005em;line-height:1}
+.instrument-tag{font-family:var(--serif);font-size:13px;color:rgba(248,244,233,0.78);
+  border-left:1px solid rgba(248,244,233,0.22);padding-left:14px;letter-spacing:0.01em}
+.appnav{display:flex;gap:6px;justify-self:center}
+.appnav a{font-family:var(--ui);font-size:12px;font-weight:500;
+  color:rgba(248,244,233,0.78);padding:7px 11px;border-radius:4px;letter-spacing:0.01em;
+  transition:background 120ms,color 120ms}
+.appnav a:hover{background:rgba(248,244,233,0.07);color:var(--gold)}
+.appbar-tools{display:flex;align-items:center;gap:8px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+  border-radius:4px;color:rgba(248,244,233,0.78);background:transparent;
+  border:1px solid rgba(248,244,233,0.18);cursor:pointer;transition:all 120ms}
+.icon-btn:hover{color:var(--gold);border-color:rgba(212,160,23,0.55)}
+.icon-btn svg{width:16px;height:16px;display:block}
+.search-pill{display:flex;align-items:center;gap:8px;background:rgba(248,244,233,0.08);
+  border:1px solid rgba(248,244,233,0.15);border-radius:5px;padding:6px 10px;
+  color:rgba(248,244,233,0.75);font-family:var(--ui);font-size:12px}
+.search-pill input{background:transparent;border:none;outline:none;color:var(--paper);font-family:var(--ui);font-size:12px;width:120px}
+.search-pill svg{width:14px;height:14px}
+
+/* ----- Hero ----- */
+.hero{
+  border-bottom:1px solid var(--rule);
+  background:
+    radial-gradient(900px 360px at 90% -20%, var(--gold-soft) 0%, transparent 60%),
+    radial-gradient(700px 320px at 10% -10%, var(--fam-string-soft) 0%, transparent 65%),
+    var(--paper);
+}
+.hero-inner{max-width:1400px;margin:0 auto;padding:36px 26px 26px;
+  display:grid;grid-template-columns:1fr 360px;gap:36px;align-items:end}
+@media (max-width:980px){.hero-inner{grid-template-columns:1fr;gap:20px}}
+
+.hero-text .eyebrow{font-family:var(--ui);font-weight:600;font-size:11px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:0.18em;display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+.hero-text .eyebrow::before{content:"";display:inline-block;width:18px;height:1px;background:var(--accent)}
+.hero-text h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.4vw,46px);
+  color:var(--ink);line-height:1.05;margin:0 0 14px;letter-spacing:-0.02em;
+  font-variation-settings:"opsz" 96}
+.hero-text h1 .accent{color:var(--ink-2);font-style:italic;font-weight:400;
+  font-family:var(--italic-serif)}
+.hero-text .meta-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 18px}
+.hero-text .meta-line .pill{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;padding:4px 10px;border-radius:3px}
+.pill-private{background:var(--gold-soft);color:#7A5814;border:1px solid var(--gold)}
+.pill-blocked{background:#F5DBD2;color:var(--block);border:1px solid var(--block)}
+.pill-fam{background:var(--paper-3);color:var(--ink-2);border:1px solid var(--rule);font-family:var(--mono);font-size:11px;letter-spacing:0;text-transform:none}
+.pill-ver{background:var(--accent-soft);color:var(--accent);border:1px solid var(--accent)}
+.hero-text p{color:var(--ink-3);max-width:640px;margin:0 0 22px;font-size:15.5px}
+
+/* Hero cover art */
+.hero-cover{aspect-ratio:4/3;background:var(--fam-string-soft);border:1px solid var(--rule);
+  border-radius:var(--radius);overflow:hidden;position:relative}
+.hero-cover svg{width:100%;height:100%;display:block}
+.hero-cover .label{position:absolute;bottom:10px;left:12px;font-family:var(--mono);
+  font-size:10.5px;color:var(--ink-3);background:rgba(255,255,255,0.78);padding:3px 8px;border-radius:3px;
+  border:1px solid var(--rule)}
+
+/* Spec strip */
+.specstrip{max-width:1400px;margin:0 auto;padding:0 26px 22px;
+  display:grid;grid-template-columns:repeat(8,1fr);gap:0;
+  border-top:1px solid var(--rule);overflow:hidden}
+@media (max-width:980px){.specstrip{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:680px){.specstrip{grid-template-columns:repeat(2,1fr)}}
+.spec{padding:14px 14px;border-right:1px solid var(--rule);background:var(--paper)}
+.spec:last-child{border-right:none}
+.spec .k{font-family:var(--ui);font-size:10px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:6px}
+.spec .v{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);
+  line-height:1.05;font-variation-settings:"opsz" 144;letter-spacing:-0.01em}
+.spec .sub{font-family:var(--ui);font-size:10.5px;color:var(--ink-3);display:block;margin-top:4px;font-weight:500}
+
+/* ----- App layout: sidebar + main ----- */
+.app{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:36px;
+  padding:32px 26px 80px}
+@media (max-width:980px){.app{grid-template-columns:1fr;gap:20px}}
+
+.sidebar{position:sticky;top:78px;align-self:start;height:calc(100vh - 100px);
+  overflow:auto;border-right:1px solid var(--rule);padding-right:18px}
+@media (max-width:980px){.sidebar{position:static;border-right:none;border-bottom:1px solid var(--rule);height:auto;padding-bottom:12px}}
+.sidebar .group{margin-bottom:20px}
+.sidebar .group-label{font-family:var(--ui);font-size:10px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:0.16em;font-weight:700;margin-bottom:8px;padding:0 6px}
+.sidebar a{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:4px;
+  color:var(--ink-3);font-family:var(--ui);font-size:13px;font-weight:500;line-height:1.3;
+  transition:background 120ms,color 120ms}
+.sidebar a:hover{background:var(--rule-soft);color:var(--ink)}
+.sidebar a.active{background:var(--ink-2);color:var(--paper)}
+.sidebar a .num{font-family:var(--mono);font-size:10px;color:var(--ink-3);width:18px;flex:0 0 auto;text-align:right}
+.sidebar a.active .num{color:var(--gold)}
+
+/* ----- Section blocks ----- */
+.main{min-width:0}
+section.block{margin-bottom:48px;scroll-margin-top:84px}
+section.block > .eyebrow{font-family:var(--ui);font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:8px}
+section.block > .eyebrow::before{content:"";display:inline-block;width:22px;height:1px;background:var(--accent)}
+section.block > h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.2vw,34px);
+  color:var(--ink);line-height:1.15;margin:0 0 14px;letter-spacing:-0.015em;
+  font-variation-settings:"opsz" 96}
+section.block > h2 .accent{color:var(--ink-2);font-family:var(--italic-serif);font-weight:400;font-style:italic}
+section.block > p{color:var(--ink-2);max-width:760px;font-size:15px}
+section.block h3{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);
+  margin:28px 0 10px;letter-spacing:-0.005em}
+
+/* Callouts */
+.callout{background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);
+  padding:14px 18px 14px 22px;margin:20px 0;position:relative;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);border-radius:var(--radius) 0 0 var(--radius)}
+.callout.warn::before{background:var(--warn)}
+.callout.block::before{background:var(--block)}
+.callout.ok::before{background:var(--ok)}
+.callout .lab{font-family:var(--ui);font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-3);
+  align-self:start;background:var(--paper-3);padding:6px 10px;border-radius:3px;white-space:nowrap}
+.callout.warn .lab{background:var(--gold-soft);color:#7A5814}
+.callout.block .lab{background:#F5DBD2;color:var(--block)}
+.callout p{margin:0;color:var(--ink-2);max-width:none;font-size:14px}
+.callout p + p{margin-top:8px}
+
+/* Stat row cards (Overview spec cards) */
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+@media (max-width:680px){.statrow{grid-template-columns:repeat(2,1fr)}}
+.statrow .card{background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);padding:13px 14px}
+.statrow .k{font-family:var(--ui);font-size:10px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:4px}
+.statrow .v{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);line-height:1.1;
+  font-variation-settings:"opsz" 144;letter-spacing:-0.01em}
+.statrow .v .sub{display:block;font-family:var(--ui);font-size:10.5px;color:var(--ink-3);font-weight:500;margin-top:4px}
+
+/* Tags */
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.tag{font-family:var(--ui);font-size:11.5px;font-weight:500;letter-spacing:0.02em;
+  background:var(--paper-3);color:var(--ink-2);padding:4px 10px;border-radius:999px;border:1px solid var(--rule)}
+
+/* Data table */
+.table-wrap{border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;margin:18px 0;background:var(--paper-2)}
+table.data{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}
+table.data thead{background:var(--paper-3)}
+table.data th{font-family:var(--ui);font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-3);
+  text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);white-space:nowrap}
+table.data td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);color:var(--ink-2)}
+table.data tbody tr:hover{background:var(--paper-3)}
+table.data tbody tr:last-child td{border-bottom:none}
+table.data tr.warn td{background:rgba(200,146,32,0.08)}
+table.data tr.warn td:first-child::before{content:"⚠ ";color:var(--warn);font-family:var(--ui)}
+
+/* CAD viewer placeholder */
+.cad-wrap{border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;background:var(--paper-2);margin:18px 0}
+.cad-head{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--paper-3)}
+.cad-head .dot{width:8px;height:8px;border-radius:50%;background:var(--warn)}
+.cad-head .label{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-2)}
+.cad-head .note{font-family:var(--ui);font-size:12px;color:var(--ink-3);margin-left:auto}
+.cad-stage{aspect-ratio:16/9;background:linear-gradient(135deg, var(--fam-string-soft) 0%, var(--paper) 100%);
+  display:flex;align-items:center;justify-content:center;position:relative}
+.cad-stage svg{max-width:80%;max-height:80%}
+.cad-stage .placeholder-note{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(255,255,255,0.92);
+  border:1px solid var(--rule);border-radius:4px;padding:8px 12px;font-family:var(--ui);font-size:12px;color:var(--ink-3)}
+
+/* Validation timeline */
+.timeline{margin:18px 0;border:1px solid var(--rule);border-radius:var(--radius);background:var(--paper-2);overflow:hidden}
+.timeline .row{display:grid;grid-template-columns:auto 100px 1fr auto;gap:14px;align-items:center;
+  padding:12px 16px;border-bottom:1px solid var(--rule-soft)}
+.timeline .row:last-child{border-bottom:none}
+.timeline .row:hover{background:var(--paper-3)}
+.timeline .gate-dot{width:10px;height:10px;border-radius:50%;background:var(--block);box-shadow:0 0 0 3px rgba(160,58,42,0.12)}
+.timeline .gate-dot.ok{background:var(--ok);box-shadow:0 0 0 3px rgba(46,125,50,0.12)}
+.timeline .gate-dot.warn{background:var(--warn);box-shadow:0 0 0 3px rgba(200,146,32,0.12)}
+.timeline .gate-id{font-family:var(--mono);font-size:11px;color:var(--ink-3);font-weight:500}
+.timeline .gate-label{color:var(--ink-2);font-size:13.5px}
+.timeline .gate-status{font-family:var(--ui);font-size:10.5px;font-weight:700;letter-spacing:0.06em;
+  text-transform:uppercase;padding:3px 8px;border-radius:3px;background:#F5DBD2;color:var(--block)}
+.timeline .gate-status.ok{background:#E8F1E5;color:var(--ok)}
+.timeline .gate-status.warn{background:var(--gold-soft);color:#7A5814}
+
+/* BOM mini table */
+.bom-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+@media (max-width:680px){.bom-summary{grid-template-columns:repeat(2,1fr)}}
+.bom-summary .b{background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);padding:14px}
+.bom-summary .b .n{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);
+  font-variation-settings:"opsz" 144;letter-spacing:-0.01em;line-height:1.1}
+.bom-summary .b .l{font-family:var(--ui);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-top:6px}
+
+/* Code listing */
+.codebox{background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;margin:18px 0}
+.codebox .head{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--rule);background:var(--paper-3)}
+.codebox .head .dot{width:10px;height:10px;border-radius:50%}
+.codebox .head .dot.r{background:#FF5F57}.codebox .head .dot.y{background:#FEBC2E}.codebox .head .dot.g{background:#28C840}
+.codebox .head .file{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-left:10px}
+.codebox pre{margin:0;padding:14px 18px;font-family:var(--mono);font-size:12px;color:var(--ink-2);overflow:auto;line-height:1.55}
+
+/* List of links inline */
+.linklist{list-style:none;padding:0;margin:14px 0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media (max-width:680px){.linklist{grid-template-columns:1fr}}
+.linklist li{background:var(--paper-2);border:1px solid var(--rule);border-radius:var(--radius);padding:11px 14px;display:flex;align-items:center;gap:10px;font-size:13.5px}
+.linklist li a{flex:1}
+.linklist li code{color:var(--ink-2);background:var(--paper-3);padding:1px 6px;border-radius:3px;border:1px solid var(--rule-soft);font-size:11px}
+.linklist li .arrow{color:var(--ink-3)}
+
+/* Section divider */
+.divider{border:none;border-top:1px solid var(--rule);margin:32px 0}
+</style>
+</head>
+<body>
+
+<header class="appbar">
+  <div class="brand">
+    <span class="wordmark"><em>Heifer Zephyr</em></span>
+    <span class="instrument-tag">Kora · Studio Explorer</span>
+  </div>
+  <nav class="appnav">
+    <a href="../instrument-showcase/site/library-v2.html">← Library (v2)</a>
+    <a href="explorer.html">Legacy explorer</a>
+    <a href="print-packet.html" target="_blank">Print packet</a>
+    <a href="https://github.com/tonykoop/kora" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+  <div class="appbar-tools">
+    <div class="search-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" placeholder="Search packet…" aria-label="Search">
+      <span style="font-family:var(--mono);font-size:10px;opacity:0.6">⌘K</span>
+    </div>
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">Build packet · instrument-maker v4.3 challenge run</div>
+      <h1>KORA-21-ROOT — <span class="accent">a 21-string</span> bridge-harp prototype</h1>
+      <div class="meta-line">
+        <span class="pill pill-private">Private review</span>
+        <span class="pill pill-blocked">Public-release blocked</span>
+        <span class="pill pill-fam">KORA-21-ROOT</span>
+        <span class="pill pill-fam">KORA-21-MULE</span>
+        <span class="pill pill-fam">KORA-13-BRIDGE-STUDY</span>
+        <span class="pill pill-ver">v4.3</span>
+      </div>
+      <p>A learning-build study of a 21-string kora-inspired bridge-harp / harp-lute — segmented 20.3″ wooden bowl substitute, through-neck spine, 6″ tall notched bridge, twin string banks F3 → D6. Driven from <code>kora-design-table.xlsx</code> and a SolidWorks MasterLayout. Held to <strong>public-release-blocked</strong> until cultural review, treble safety redesign, and proof-load tests pass.</p>
+    </div>
+    <div class="hero-cover">
+      <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8B5A1F" stroke-width="0.5" opacity="0.15"/>
+          </pattern>
+          <linearGradient id="bowl" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#A06D2A"/>
+            <stop offset="100%" stop-color="#5A3A18"/>
+          </linearGradient>
+        </defs>
+        <rect width="600" height="450" fill="#F5E9D2"/>
+        <rect width="600" height="450" fill="url(#g)"/>
+        <!-- Neck -->
+        <rect x="280" y="20" width="36" height="380" rx="3" fill="#3D2817"/>
+        <rect x="276" y="20" width="44" height="14" fill="#1a1410"/>
+        <!-- Bowl -->
+        <ellipse cx="300" cy="370" rx="170" ry="46" fill="#3D2817" opacity="0.6"/>
+        <ellipse cx="300" cy="350" rx="170" ry="70" fill="url(#bowl)"/>
+        <ellipse cx="300" cy="345" rx="160" ry="55" fill="#F4ECDB" stroke="#B98B47" stroke-width="3"/>
+        <!-- Bridge -->
+        <rect x="290" y="270" width="20" height="90" rx="2" fill="#3D2817"/>
+        <!-- Strings -->
+        <g stroke="#D4A017" stroke-width="0.9" opacity="0.85">
+          <line x1="291" y1="270" x2="282" y2="40"/>
+          <line x1="293" y1="270" x2="285" y2="40"/>
+          <line x1="295" y1="270" x2="288" y2="40"/>
+          <line x1="297" y1="270" x2="290" y2="40"/>
+          <line x1="299" y1="270" x2="293" y2="40"/>
+          <line x1="301" y1="270" x2="295" y2="40"/>
+          <line x1="303" y1="270" x2="298" y2="40"/>
+          <line x1="305" y1="270" x2="300" y2="40"/>
+          <line x1="307" y1="270" x2="303" y2="40"/>
+          <line x1="309" y1="270" x2="305" y2="40"/>
+          <line x1="311" y1="270" x2="308" y2="40"/>
+        </g>
+        <g stroke="#1E3A8A" stroke-width="0.9" opacity="0.85">
+          <line x1="289" y1="358" x2="280" y2="40"/>
+          <line x1="291" y1="358" x2="284" y2="40"/>
+          <line x1="293" y1="358" x2="287" y2="40"/>
+          <line x1="295" y1="358" x2="290" y2="40"/>
+          <line x1="297" y1="358" x2="293" y2="40"/>
+          <line x1="299" y1="358" x2="295" y2="40"/>
+          <line x1="301" y1="358" x2="298" y2="40"/>
+          <line x1="303" y1="358" x2="300" y2="40"/>
+          <line x1="305" y1="358" x2="303" y2="40"/>
+          <line x1="307" y1="358" x2="305" y2="40"/>
+        </g>
+        <!-- Hand posts -->
+        <rect x="138" y="335" width="14" height="60" rx="2" fill="#3D2817"/>
+        <rect x="448" y="335" width="14" height="60" rx="2" fill="#3D2817"/>
+      </svg>
+      <span class="label">SolidWorks · KOR-000_KoraHarp · MasterLayout (concept silhouette)</span>
+    </div>
+  </div>
+
+  <div class="specstrip">
+    <div class="spec"><div class="k">Bowl Ø</div><div class="v">20.3<span class="sub">in · 168-stave</span></div></div>
+    <div class="spec"><div class="k">Bowl depth</div><div class="v">9.8<span class="sub">in</span></div></div>
+    <div class="spec"><div class="k">Neck length</div><div class="v">51.2<span class="sub">in · through-neck</span></div></div>
+    <div class="spec"><div class="k">Strings</div><div class="v">21<span class="sub">two banks · 0.273″ slot</span></div></div>
+    <div class="spec"><div class="k">Range</div><div class="v">F3–D6<span class="sub">8.7–31.1″ scale</span></div></div>
+    <div class="spec"><div class="k">Bridge ht.</div><div class="v">6.0<span class="sub">in · notched</span></div></div>
+    <div class="spec"><div class="k">Tension</div><div class="v">8–14<span class="sub">lbf / string</span></div></div>
+    <div class="spec"><div class="k">First build</div><div class="v">MULE<span class="sub">low-tension</span></div></div>
+  </div>
+</section>
+
+<div class="app">
+
+<aside class="sidebar" id="sidebar">
+  <div class="group">
+    <div class="group-label">Project</div>
+    <a href="#overview"><span class="num">01</span> Overview</a>
+    <a href="#cad"><span class="num">02</span> CAD model</a>
+  </div>
+  <div class="group">
+    <div class="group-label">Design</div>
+    <a href="#strings"><span class="num">03</span> String schedule</a>
+    <a href="#bridge"><span class="num">04</span> Bridge &amp; resonator</a>
+    <a href="#neck"><span class="num">05</span> Neck &amp; load path</a>
+  </div>
+  <div class="group">
+    <div class="group-label">Build</div>
+    <a href="#bom"><span class="num">06</span> Bill of materials</a>
+    <a href="#assembly"><span class="num">07</span> Assembly</a>
+    <a href="#cnc"><span class="num">08</span> CNC &amp; drawings</a>
+  </div>
+  <div class="group">
+    <div class="group-label">Validate</div>
+    <a href="#validation"><span class="num">09</span> Validation gates</a>
+    <a href="#wolfram"><span class="num">10</span> Wolfram Cloud</a>
+    <a href="#risks"><span class="num">11</span> Risk register</a>
+  </div>
+  <div class="group">
+    <div class="group-label">Publish</div>
+    <a href="#capstone"><span class="num">12</span> Capstone</a>
+    <a href="#learn"><span class="num">13</span> Learn-to-play</a>
+    <a href="#sources"><span class="num">14</span> Sources</a>
+  </div>
+</aside>
+
+<main class="main">
+
+<section id="overview" class="block">
+  <div class="eyebrow">01 · Overview</div>
+  <h2>What this <span class="accent">is</span> — and what it isn't.</h2>
+  <p>An engineering prototype of a 21-string kora-inspired bridge-harp / harp-lute, driven from a parametric workbook (<code>kora-design-table.xlsx</code>) and a SolidWorks MasterLayout. It is <em>not</em> a traditional reproduction, <em>not</em> a production-ready commercial instrument, and <em>not</em> a claim of cultural authority. It is a learning build held to a public-release-blocked status until cultural review, treble safety redesign, and proof-load tests pass.</p>
+
+  <div class="callout block">
+    <span class="lab">Scope boundary</span>
+    <div>
+      <p>The kora is a culturally situated West African instrument associated with Mande / Mandinka traditions and jali / griot musicianship. Design language in this repo uses <em>kora-inspired prototype</em>, <em>engineering study</em>, and <em>hybrid build packet</em>. It deliberately avoids <em>authentic</em>, <em>traditional replica</em>, <em>master kora</em>, and <em>improved kora</em>.</p>
+      <p>The segmented wooden bowl is a practical shop substitute for a natural calabash — not an acoustic or cultural equivalence claim.</p>
+    </div>
+  </div>
+
+  <h3>Six coupled systems</h3>
+  <p>The build packet balances six systems that move together — change one, document the cascade in the other five.</p>
+  <div class="tag-row">
+    <span class="tag">String scaling + tension</span>
+    <span class="tag">Tall notched bridge</span>
+    <span class="tag">Membrane-loaded resonator</span>
+    <span class="tag">Neck load path + tail anchor</span>
+    <span class="tag">Player ergonomics</span>
+    <span class="tag">Cultural provenance + release sensitivity</span>
+  </div>
+</section>
+
+<section id="cad" class="block">
+  <div class="eyebrow">02 · CAD model</div>
+  <h2>SolidWorks MasterLayout <span class="accent">KOR-000_KoraHarp</span></h2>
+  <p>The assembly is built from a parametric MasterLayout part — bowl, rim, through-neck, crossbar, two hand handles, membrane, bridge pad, tall notched bridge, two sleeve bearings, and an eyebolt tail anchor.</p>
+
+  <div class="cad-wrap">
+    <div class="cad-head">
+      <span class="dot"></span>
+      <span class="label">CAD viewer</span>
+      <span class="note">Loads <code>cad/KOR-000_KoraHarp.gltf</code> when served over http(s).</span>
+    </div>
+    <div class="cad-stage">
+      <svg viewBox="0 0 400 225" aria-hidden="true">
+        <defs><pattern id="cg" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#8B5A1F" stroke-width="0.3" opacity="0.2"/></pattern></defs>
+        <rect width="400" height="225" fill="url(#cg)"/>
+        <ellipse cx="200" cy="160" rx="120" ry="38" fill="#3D2817" opacity="0.6"/>
+        <ellipse cx="200" cy="150" rx="120" ry="50" fill="#A06D2A"/>
+        <ellipse cx="200" cy="146" rx="112" ry="40" fill="#F4ECDB" stroke="#B98B47" stroke-width="2"/>
+        <rect x="192" y="100" width="16" height="55" fill="#3D2817"/>
+        <rect x="194" y="20" width="12" height="120" fill="#3D2817"/>
+      </svg>
+      <div class="placeholder-note">Open over <code>http://localhost</code> (or with a SolidWorks-exported glTF in place) to load the live 3D viewer. Static preview shown when opened from <code>file://</code>.</div>
+    </div>
+  </div>
+
+  <h3>Assembly tree</h3>
+  <ul class="linklist">
+    <li><code>KOR-000_MasterLayout</code><span class="arrow">parametric source of truth</span></li>
+    <li><code>KOR-000_Gourd</code><span class="arrow">segmented 168-stave bowl</span></li>
+    <li><code>KOR-000_Neck</code><span class="arrow">through-neck spine</span></li>
+    <li><code>KOR-000_Crossbar</code><span class="arrow">neck-to-rim cross brace</span></li>
+    <li><code>KOR-000_Handle</code> ×2<span class="arrow">player hand posts</span></li>
+    <li><code>KOR-000_Membrane</code><span class="arrow">head (hide / synthetic, TBD)</span></li>
+    <li><code>KOR-000_BridgePad</code><span class="arrow">bridge foot cushion</span></li>
+    <li><code>KOR-000_Bridge</code><span class="arrow">6″ tall notched bridge</span></li>
+    <li><code>7815K21</code> ×2<span class="arrow">sleeve bearings</span></li>
+    <li><code>KOR-000_Eyebolt</code><span class="arrow">tail anchor</span></li>
+  </ul>
+</section>
+
+<section id="strings" class="block">
+  <div class="eyebrow">03 · String schedule</div>
+  <h2>21 strings · F3 → D6 · <span class="accent">workbook-derived</span></h2>
+  <p>Calculated from the workbook formula pattern (Mersenne–Taylor) using nylon density 0.04155 lb/in³, assumed breaking stress 44 600 psi, wound-string effective density factor 2.5×, and target tension ramp 8 → 14 lbf. This is a planning table — not purchase-ready.</p>
+
+  <div class="callout block">
+    <span class="lab">VAL-003 · Treble safety</span>
+    <div>
+      <p>Strings 1–4 (D6 down to A5) calculate at or above 87 % of practical break, and string 1 is over 100 %. Percent break is independent of diameter in the ideal round-string model, so swapping gauges alone won't fix this. Before any full-tension stringing: reduce treble target tension, lengthen treble scale, change material, or revise pitch assignment.</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="data">
+      <thead><tr><th>#</th><th>Note</th><th>MIDI</th><th>Freq Hz</th><th>Length in</th><th>Type</th><th>Tension lbf</th><th>Ø in</th><th>% break</th></tr></thead>
+      <tbody>
+        <tr class="warn"><td>1</td><td>D6</td><td>86</td><td>1174.66</td><td>8.70</td><td>Nylon</td><td>8.00</td><td>0.0151</td><td>100.7</td></tr>
+        <tr class="warn"><td>2</td><td>C6</td><td>84</td><td>1046.50</td><td>9.40</td><td>Nylon</td><td>8.30</td><td>0.0159</td><td>93.3</td></tr>
+        <tr class="warn"><td>3</td><td>B5</td><td>83</td><td>987.77</td><td>9.90</td><td>Nylon</td><td>8.60</td><td>0.0165</td><td>89.2</td></tr>
+        <tr class="warn"><td>4</td><td>A5</td><td>81</td><td>880.00</td><td>10.85</td><td>Nylon</td><td>8.90</td><td>0.0173</td><td>87.1</td></tr>
+        <tr><td>5</td><td>G5</td><td>79</td><td>783.99</td><td>11.95</td><td>Nylon</td><td>9.10</td><td>0.0179</td><td>83.0</td></tr>
+        <tr><td>6</td><td>F5</td><td>77</td><td>698.46</td><td>13.10</td><td>Nylon</td><td>9.30</td><td>0.0187</td><td>78.4</td></tr>
+        <tr><td>7</td><td>E5</td><td>76</td><td>659.26</td><td>13.85</td><td>Nylon</td><td>9.40</td><td>0.0191</td><td>76.4</td></tr>
+        <tr><td>8</td><td>D5</td><td>74</td><td>587.33</td><td>15.20</td><td>Nylon</td><td>9.60</td><td>0.0199</td><td>72.0</td></tr>
+        <tr><td>9</td><td>C5</td><td>72</td><td>523.25</td><td>16.65</td><td>Nylon</td><td>9.80</td><td>0.0208</td><td>67.7</td></tr>
+        <tr><td>10</td><td>B4</td><td>71</td><td>493.88</td><td>17.40</td><td>Nylon</td><td>9.90</td><td>0.0212</td><td>65.6</td></tr>
+        <tr><td>11</td><td>A4</td><td>69</td><td>440.00</td><td>18.95</td><td>Nylon</td><td>10.10</td><td>0.0220</td><td>61.4</td></tr>
+        <tr><td>12</td><td>G4</td><td>67</td><td>391.99</td><td>20.70</td><td>Nylon</td><td>10.30</td><td>0.0229</td><td>57.0</td></tr>
+        <tr><td>13</td><td>F4</td><td>65</td><td>349.23</td><td>22.65</td><td>Wound</td><td>10.50</td><td>0.0317</td><td>50.4</td></tr>
+        <tr><td>14</td><td>E4</td><td>64</td><td>329.63</td><td>23.65</td><td>Wound</td><td>10.60</td><td>0.0323</td><td>48.4</td></tr>
+        <tr><td>15</td><td>D4</td><td>62</td><td>293.66</td><td>25.90</td><td>Wound</td><td>10.80</td><td>0.0335</td><td>44.4</td></tr>
+        <tr><td>16</td><td>C4</td><td>60</td><td>261.63</td><td>28.35</td><td>Wound</td><td>11.00</td><td>0.0349</td><td>40.4</td></tr>
+        <tr><td>17</td><td>B3</td><td>59</td><td>246.94</td><td>29.65</td><td>Wound</td><td>11.10</td><td>0.0356</td><td>38.5</td></tr>
+        <tr><td>18</td><td>A3</td><td>57</td><td>220.00</td><td>32.30</td><td>Wound</td><td>11.30</td><td>0.0370</td><td>34.8</td></tr>
+        <tr><td>19</td><td>G3</td><td>55</td><td>195.99</td><td>35.20</td><td>Wound</td><td>11.50</td><td>0.0386</td><td>31.2</td></tr>
+        <tr><td>20</td><td>F3</td><td>53</td><td>174.61</td><td>38.35</td><td>Wound</td><td>11.70</td><td>0.0402</td><td>27.9</td></tr>
+        <tr><td>21</td><td>F3</td><td>53</td><td>174.61</td><td>31.10</td><td>Wound</td><td>14.00</td><td>0.0432</td><td>32.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="bridge" class="block">
+  <div class="eyebrow">04 · Bridge &amp; resonator</div>
+  <h2>Tall notched bridge against a <span class="accent">membrane-loaded</span> resonator</h2>
+  <p>The bridge is 6.0″ tall × 2.5″ wide × 0.75″ thick, with two banks of slot notches at 0.273″ spacing. It rides on a bridge pad against the hide/synthetic membrane head. Static-load math is in the workbook; the membrane response is the dominant unknown.</p>
+
+  <div class="statrow">
+    <div class="card"><div class="k">Bridge height</div><div class="v">6.0 in<span class="sub">tall, two banks</span></div></div>
+    <div class="card"><div class="k">Slot spacing</div><div class="v">0.273 in<span class="sub">workbook draft</span></div></div>
+    <div class="card"><div class="k">Foot footprint</div><div class="v">2.5 × 0.75 in<span class="sub">cushioned by pad</span></div></div>
+    <div class="card"><div class="k">Pad material</div><div class="v">TBD<span class="sub">leather / felt / hardwood</span></div></div>
+  </div>
+
+  <p style="margin-top:14px">→ Full bridge geometry drawing: <a href="drawings/bridge-geometry.svg"><code>drawings/bridge-geometry.svg</code></a></p>
+</section>
+
+<section id="bom" class="block">
+  <div class="eyebrow">06 · Bill of materials</div>
+  <h2>Sourcing, stock, <span class="accent">and budget</span></h2>
+  <div class="bom-summary">
+    <div class="b"><div class="n">168</div><div class="l">stave parts</div></div>
+    <div class="b"><div class="n">21</div><div class="l">strings (2 banks)</div></div>
+    <div class="b"><div class="n">38</div><div class="l">line items total</div></div>
+    <div class="b"><div class="n">~$420</div><div class="l">est. material budget</div></div>
+  </div>
+  <p>→ Full BOM CSV: <a href="bom.csv"><code>bom.csv</code></a> · Cut list: <a href="cut-list.csv"><code>cut-list.csv</code></a> · Supplier RFQ: <a href="supplier-rfq.md"><code>supplier-rfq.md</code></a></p>
+</section>
+
+<section id="validation" class="block">
+  <div class="eyebrow">09 · Validation gates</div>
+  <h2>Six gates between <span class="accent">prototype and public release</span></h2>
+  <p>Every gate below is currently open. Public-release-blocked status persists until all clear.</p>
+
+  <div class="timeline">
+    <div class="row">
+      <span class="gate-dot"></span>
+      <code class="gate-id">VAL-001</code>
+      <span class="gate-label">Cultural / kora-tradition advisor review</span>
+      <span class="gate-status">Open</span>
+    </div>
+    <div class="row">
+      <span class="gate-dot"></span>
+      <code class="gate-id">VAL-003</code>
+      <span class="gate-label">Treble string-tension safety redesign</span>
+      <span class="gate-status">Open</span>
+    </div>
+    <div class="row">
+      <span class="gate-dot"></span>
+      <code class="gate-id">VAL-008 / 009</code>
+      <span class="gate-label">Neck and tail-anchor proof-load validation</span>
+      <span class="gate-status">Open</span>
+    </div>
+    <div class="row">
+      <span class="gate-dot"></span>
+      <code class="gate-id">VAL-010 / 011</code>
+      <span class="gate-label">Bridge foot &amp; head-deflection staged-load test</span>
+      <span class="gate-status">Open</span>
+    </div>
+    <div class="row">
+      <span class="gate-dot"></span>
+      <code class="gate-id">VAL-013</code>
+      <span class="gate-label">Measured prototype data populates <code>validation.csv</code></span>
+      <span class="gate-status">Open</span>
+    </div>
+    <div class="row">
+      <span class="gate-dot"></span>
+      <code class="gate-id">VAL-015</code>
+      <span class="gate-label">Owned / permission-cleared visuals replace placeholders</span>
+      <span class="gate-status">Open</span>
+    </div>
+  </div>
+</section>
+
+<section id="wolfram" class="block">
+  <div class="eyebrow">10 · Wolfram Cloud</div>
+  <h2>Run the acoustic model <span class="accent">from your browser</span></h2>
+  <p>The <code>kora-starter.wl</code> notebook computes string tension, Mersenne–Taylor scaling, and bridge load summaries. It's deployed to Wolfram Cloud on the <code>wrfcoin</code> account — owner-only or live depending on publish state. See <a href="../wolfram-cloud-sync/manifest/wolfram_embed_urls.json"><code>wolfram_embed_urls.json</code></a> for the active embed.</p>
+
+  <div class="codebox">
+    <div class="head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="file">kora-starter.wl</span></div>
+<pre>(* String length from frequency, tension, density *)
+StringLengthIn[freq_, tensionLbf_, densityLbPerIn3_, diaIn_] :=
+  Sqrt[tensionLbf / (Pi (diaIn/2)^2 densityLbPerIn3)] / (2 freq) * 12.
+
+(* Apply across the workbook table *)
+TableForm[
+  Table[
+    {note, StringLengthIn[freq, ten, 0.04155, dia]},
+    {note, freq, ten, dia} /. workbookData
+  ]
+]</pre>
+  </div>
+</section>
+
+<section id="capstone" class="block">
+  <div class="eyebrow">12 · Capstone</div>
+  <h2>Deck, deliverables, <span class="accent">and the path to publish</span></h2>
+  <ul class="linklist">
+    <li><a href="capstone-deck.md"><code>capstone-deck.md</code></a><span class="arrow">12-slide narrative</span></li>
+    <li><a href="capstone-deck.pptx"><code>capstone-deck.pptx</code></a><span class="arrow">built deck</span></li>
+    <li><a href="capstone-manifest.json"><code>capstone-manifest.json</code></a><span class="arrow">readiness state</span></li>
+    <li><a href="print-packet.html"><code>print-packet.html</code></a><span class="arrow">shop binder</span></li>
+    <li><a href="learn-to-play/"><code>learn-to-play/</code></a><span class="arrow">starter songbook</span></li>
+    <li><a href="../instrument-showcase/site/library-v2.html">Library (v2)</a><span class="arrow">all 50 instruments</span></li>
+  </ul>
+</section>
+
+<section id="sources" class="block">
+  <div class="eyebrow">14 · Sources &amp; provenance</div>
+  <h2>Acknowledged debts and <span class="accent">independent verification</span></h2>
+  <p>Background sources for cultural framing, instrument morphology, and string-tension formulas. Each is listed with the role it played in the build packet.</p>
+  <ul class="linklist">
+    <li><a href="#">Met Museum collection notes</a><span class="arrow">21-string kora morphology</span></li>
+    <li><a href="#">Britannica · Kora</a><span class="arrow">long hardwood neck through hide head</span></li>
+    <li><a href="#">Taylor formula (string tension)</a><span class="arrow">Mersenne–Taylor derivation</span></li>
+    <li><a href="#">Sleeve bearing 7815K21</a><span class="arrow">McMaster-Carr</span></li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<script>
+(function(){
+  // Sidebar active section
+  const links = Array.from(document.querySelectorAll('.sidebar a'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    let active = sections[0];
+    const y = window.scrollY + 120;
+    for (const s of sections){ if (s.offsetTop <= y) active = s; }
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + (active?.id || '')));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  const saved = (function(){try{return localStorage.getItem('hz-theme')||'light'}catch(e){return 'light'}})();
+  if (saved === 'dark') document.documentElement.dataset.theme = 'dark';
+  themeBtn.addEventListener('click', ()=>{
+    const cur = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = cur;
+    try{localStorage.setItem('hz-theme', cur)}catch(e){}
+  });
+
+  // Keyboard
+  const searchEl = document.getElementById('search');
+  document.addEventListener('keydown', (ev)=>{
+    if ((ev.metaKey || ev.ctrlKey) && ev.key.toLowerCase() === 'k'){
+      ev.preventDefault(); searchEl.focus(); searchEl.select();
+    }
+    if (ev.key === '/' && document.activeElement !== searchEl){ ev.preventDefault(); searchEl.focus(); }
+  });
+})();
+</script>
+</body>
+</html>
