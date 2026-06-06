@@ -1,12 +1,12 @@
 # String Numbering Analysis — Restoration Kora
 
-_Drafted 2026-06-06, from the measured speaking lengths in `kora-restoration-measurements.xlsx` (String Schedule sheet). Addresses the open worry: "I'm not sure I attributed string lengths to the proper number and key."_
+_Drafted 2026-06-06, from the measured speaking lengths in the restoration measurements (String Schedule). Addresses the open worry: "I'm not sure I attributed string lengths to the proper number and key."_
 
 ## Tony's measuring convention
 
 - 21 strings total: **11 on the left bank (odd numbers 1–21), 10 on the right bank (even numbers 2–20)**.
 - Top-left string = #21 (longest), bottom-right = #2.
-- Speaking lengths recorded; **diameters, materials, and tuning-ring positions were not** (those columns are blank).
+- Speaking lengths recorded. All strings measured **0.026″** uniform diameter (pitch is set by length/tension, not gauge); material and tuning-ring positions not yet recorded.
 - Missing strings: **#1 (D6), #2 (C6), #8 (D5)** — all at the high/short end.
 
 ## Measured speaking lengths (inches)
@@ -43,12 +43,16 @@ A random numbering error would scatter; this smooth, banded offset is the signat
 
 - **Do not back-solve canonical string numbers from the old lengths.** It's restringing with a fresh set, so the reference schedule (Ref Note column, D6→F3) is the *target* — tune the new strings to pitch rather than trying to reconstruct the old assignment.
 - **Use the measured old lengths only for geometry**: bridge-notch spacing and tail-anchor order. They are a sanity check, not the authority on numbering.
-- **Record string diameters on the new set.** Gauge is the real pitch determinant and resolves any ordering ambiguity far better than length. Fill the blank diameter/material/ring columns this round.
 - **Cover the missing high strings** in the new set: #1 D6, #2 C6, #8 D5.
-- **Fix the reference typo**: the Ref Note column lists `F3` for both #20 and #21. One should differ (e.g. #20 = F#3, or #21 a distinct lower note) so the tuning target is unambiguous.
+- **Reference typo resolved → #21 = F2.** The Ref Note column originally listed `F3` for both #20 and #21 (an octave typo). In Mande/Silaba tuning the lowest left-bank string — the *Timbamba* / *Bakumba* — is tuned to the tonic **one octave below the base F3**, i.e. F2, not a further scale step (E3). The physical evidence corroborates: #21 is a heavy **4-strand braid** vs the **2-strand twist** on #20, exactly what an octave-drop bass string needs.
+
+## Data location
+
+The measurements now live as CSV under `kora-restoration-measurements/` (one file per workbook sheet) — text format that survives the file-sync issues the `.xlsx` hit and diffs cleanly in git. `string-schedule.csv` is the current source of truth for string data.
 
 ## Open items
 
-- [ ] Decide final tuning target (standard Mandé F-major / Silaba, or a custom scale for this decorative body).
-- [ ] On restring: record diameter (thousandths), material, and tuning-ring position per string.
-- [ ] Correct the #20/#21 reference-note duplication in the workbook.
+- [x] Corrected #21 to F2 (Mande bass tonic); recorded 0.026″ diameters and braid/twist notes in `string-schedule.csv`.
+- [ ] Final tuning target on restring: standard Mande/Silaba (F major), restrung so the two banks alternate in the proper zigzag interleaving.
+- [ ] On restring, also record material and tuning-ring position per string (still blank).
+- [ ] Re-enter any newer Dimensions / Condition-tab edits if they didn't survive the `.xlsx` sync (CSVs were converted from the last good commit).
