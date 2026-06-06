@@ -1,0 +1,34 @@
+Kora Restoration and New Build Progress on June 6th, 2026
+
+The other weekend at Ethan's birthday party, we had an arts and craft session where I was able to make a bunch of progress on the Kora restoration.
+
+
+- I measured a all of things and wrote down the dimensions, I still have to transfer those from paper into the electronic file. 
+- I took a bunch of photos before taking it apart. 
+- I measured all the strings (2 or 3 were missing) and then removed them all as one item while still attached to the old tail anchor which is going to be replaced anyway. 
+- On May 20th I placed an order for new kora strings with kumbengokoras.com (Sarah Welch <sarahwelchpottery@gmail.com>), they got delayed by two weeks but hopefully will be shipping by June 9th. 
+- I have been watching some kora and gourd banjo making videos on youtube and learned a few things I'd like to apply to this build 
+- Use sandpaper on the gourd exterior
+- Use a steel or brass wire brush on the interior of the gourd to remove any excess dried out gourd pulp.
+- Apply a layer of fiber glass to the gourd interior to reinforce and strengthen the gourd for longevity.
+- Use a big belt sander (or parking lot asphalt surface) to smooth out the gourd rim after cutting off the top.
+- Use a rasp or file or router bit to apply a gentle fillet upon the bearing edge for cowskin membrane longevity.
+- Apply a shellac or other finish that will cause the grain and color to pop while still providing durable protection.
+- There may be some benefit to soaking the new cowskin in room temp coffee to add a coffee stain and perhaps the tannin content in the coffee adds some beneficial properties to the cowskin.
+- I have a couple cowskins in my shopping cart with https://djembedrumsandskins.com but I haven't purchased yet. 28" Hairless South American Cow Rounds.
+- Prestretch the cowhide during soaking to encourage a snug tight fit after being tacked onto the gourd and dried.
+- My restoration kora has half-moon reliefs cut into the gourd rim such that the wooden crossbar is recessed
+- Nail holes to be filled, potentially with wood filler?
+- The gourd has two cracks which must have been present during construction because I discovered two reinforcing sutures that were sewn into the gourd before the original cowhide was applied. Unfortunately, one of those cracks goes from the gourd rim to the top neck hole. Several of the videos I've watched have come up with techniques to reinforce the rim from the inside including the usage of bamboo strips or aluminum flatbar. I have been considering using 3003 aluminum flatbar 1/8" x 1" x 72" Mcmaster part 9134K11. But, I'm not sure how to deal with the half-moon releifs since they interrupt the rim's circumference, maybe I could cut a reliefs in the wooden cross bar for the aluminum flatbar to remain continuous around the ID circumference.
+- I am planning on wood turning the original crossbar and two handle bars on a wood lathe. The handles are roughly 1.2" diameter which feel too large for my pinky and ring fingers to grip while playing, turning them down to 0.875-1.0" will make them more ergonomic and provide a smoother fresh surface to apply a wood finish. The kora neck is 49" which is too long for the wood lathe at Maker Nexus, I'll likely manually sand that by hand.
+- I plan to reuse the original bridge and bridge foot though they are rough cut and I plan to put them through the drum sander for a more quality surface and texture. 
+- I've removed most of the old nails from the old cowhide but there are still a handfull of stubborn ones that need removing. These old nails will not be reused, I will want to get some new tacks.
+- The holes in the gourd for the neck are oversized at around 2.25" diameter, but the neck shaft itself is about 1.85" diameter x 49" long, so I'll want to figure out a way to fill that gap and ensure a good fit between the gourd and the neck shaft.
+- The half-moon reliefs are also slightly oversized for the crossbar, and will be even more oversized once I woodturn a fresh surface onto that crossbar. This will need a similiar solution as the neck hole diameter mismatches.
+- I'm thinking about putting some kind of grippy and protective foot on the bottom of the neck shaft where it contacts the ground while playing. The bare wooden end feels a bit clunky and like it could scratch up the floor where being played.
+- Photo albums here in these folders: "C:\Users\Tony\Documents\GitHub\instruments\strings\kora\projects\restoration photo album" and "C:\Users\Tony\Documents\GitHub\instruments\strings\kora\projects\new kora build" These will need to be committed. 
+- I kept the old cowskin since it can be used for other projects, I think I only counted 20 tuning rings so I'll need to make another one. I might even make an entirely new set tuning rings from this old cowskin. 
+- When I was measuring the strings before taking them off and I was filling out the measurement packet, I was not sure that I properly attributed string lengths to their proper number and keys. My method was that all 11 strings on the left were odd numbers and all 10 strings on the right were even numbers (top left string is #21, bottom right string is #2). This may require a bit of sorting out when restringing the kora.
+- I also made a second eBay purchase for a 17" diameter African Kettle gourd which will be used for the new kora built from scratch. I did receive the tuning hardware already. Hopefully my fresh package of strings will have enough to restring two koras, if not then I'll likely reverse engineer the string package and source my own strings instead of buy a second package. 
+- I still need wood for the new kora's handles, neck, crossbar, bridge and bridge foot.
+- I collected roughly 320 African kettle gourd seeds (estimated by mass), an
