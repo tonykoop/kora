@@ -1,0 +1,22 @@
+,Kora Restoration - Measurement & Documentation Workbook,
+,"eBay instrument: Large 50"" African Kora-style gourd harp. Capture before disassembly. Units: inches.",
+,,
+,,
+How to use this workbook,,
+,Dimensions,"Main capture sheet, organized by subsystem. Fill the yellow 'Measured (in)' column. The blue 'Repo Target (in)' column shows the value from your own build spec (kora-design-table / CAD) for comparison - it is NOT what this instrument 'should' be, just a reference point."
+,String Schedule,"One row per string. Record speaking length, total length, caliper diameter, which bank (left/right of bridge), and the tuning-ring position. Reference lengths/notes are from your design.md schedule."
+,Photo Log,Shot list for documenting condition and geometry. Tick 'Done' and note the filename so photos map to measurements.
+,Condition & Restoration Log,"Record what you find and the planned action per component. Your stated scope (cowskin, strings, tacks, anchor, sanding, finish) is pre-listed."
+,,
+Measuring conventions,,
+,Pick a datum first,"Define a single reference point and direction before measuring so everything is repeatable. Suggested: neck-to-gourd entry point = 0, measure UP the neck toward the head and DOWN toward the tail/anchor separately. Note your datum in the Notes."
+,Measure before AND after destring,"String tension distorts the skin, bridge lean, and neck. Capture loaded geometry first (bridge height, skin doming, neck angle), then re-measure unloaded after removing strings."
+,Take 3 readings,"For anything load-bearing or tapered (neck/handle/crossbar diameters, gourd diameter), measure in 2-3 places and record all; note location. Diameters are rarely round - record max and min."
+,Caliper vs tape,"Calipers for diameters, thicknesses, spacing, string gauges. Tape for lengths and the gourd circumference. Record string gauges in thousandths of an inch."
+,Trace what you can't measure,"Before removing the skin, trace the gourd rim outline, the bridge footprint, and the tack pattern onto paper or photograph against a ruler. These are nearly impossible to reconstruct later."
+,Count and map strings,Photograph the bridge straight-on and number the strings/notches L and R before loosening anything. Note the order they attach at the anchor.
+,Label as you disassemble,"Bag and label tacks, rings, and the bridge/foot. Note original tack spacing and count - your new tack pattern should match unless you decide otherwise."
+,,
+Legend,,
+,Yellow cell,You fill this in (your measurement).
+,Blue cell,Reference value from your repo build spec - read-only comparison.

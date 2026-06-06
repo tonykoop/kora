@@ -1,0 +1,27 @@
+"String Schedule - one row per string (number L-to-R at the bridge, top bank first)"
+String #,Bank (L/R),Ref Note,Ref Length (in),Measured speaking length (in),Measured total length (in),Measured diameter (in),Material,Tuning-ring # / pos (in),Condition,Notes
+1,L,D6,8.7,missing,,,,,,
+2,R,C6,9.4,missing,,,,,,
+3,L,A#5,10.2,14.4,,0.026,,,,
+4,R,A5,11,10.25,,0.026,,,,
+5,L,G5,12,17.25,,0.026,,,,
+6,R,F5,13,11.4,,0.026,,,,
+7,L,E5,13.8,19.75,,0.026,,,,
+8,R,D5,15,missing,,,,,,
+9,L,C5,16.2,23,,0.026,,,,
+10,R,A#4,17.5,13.8,,0.026,,,,
+11,L,A4,18.5,25,,0.026,,,,
+12,R,G4,19.8,16,,0.026,,,,
+13,L,F4,21.2,27.1,,0.026,,,,
+14,R,E4,22.5,21.75,,0.026,,,,
+15,L,D4,24,29.2,,0.026,,,,
+16,R,C4,25.5,24.4,,0.026,,,,
+17,L,A#3,27,30.25,,0.026,,,,
+18,R,A3,28.2,26.2,,0.026,,,,
+19,L,G3,29.5,31,,0.026,,,,
+20,R,F3,30.5,28.3,,0.026,,,,2-strand twist
+21,L,F2,31.1,31.5,,0.026,,,,"4-strand braid; bass tonic (Timbamba/Bakumba), F2 = octave below the F3 base string"
+(spare)
+(spare)
+(spare)
+Actual string count:,,Record the real count - decorative koras vary.
