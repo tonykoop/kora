@@ -1,0 +1,3 @@
+[submodule "one-shot-packets"]
+	path = one-shot-packets
+	url = https://github.com/tonykoop/kora-oneshot-packets
