@@ -45,5 +45,30 @@
       "measured prototype data",
       "owned or permission-cleared visuals"
     ]
+  },
+  "engineering": {
+    "wolfram": [
+      {
+        "source_file": "strings/kora/kora-starter.wl",
+        "cloud_path": "Musical_Instruments/strings/kora/kora-starter.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-starter.wl",
+        "permission": "Public-Execute",
+        "kind": "acoustics-starter"
+      },
+      {
+        "source_file": "strings/kora/one-shot-packets/20260619-claude-opus/wolfram/kora-model.wl",
+        "cloud_path": "Musical_Instruments/strings/kora/kora-model.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-model.wl",
+        "permission": "Public-Execute",
+        "kind": "geometry-model"
+      },
+      {
+        "source_file": "strings/kora/wolfram/kora-acoustic-design.wl",
+        "cloud_path": "Musical_Instruments/strings/kora/kora-acoustic-design.wl",
+        "cloud_url": "https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-acoustic-design.wl",
+        "permission": "Public-Execute",
+        "kind": "other"
+      }
+    ]
   }
 }
