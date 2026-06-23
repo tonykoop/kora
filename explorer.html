@@ -17,6 +17,9 @@ p.intro{font-size:17px}
 .btn.primary{background:var(--accent);color:#fff}
 ul.files{font-family:var(--mono);font-size:14px;columns:2;gap:24px}
 ul.files a{color:var(--walnut)}
+.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:8px 0}
+.img-cell{margin:0}.img-cell img{width:100%;border:1px solid var(--rule);border-radius:6px;display:block;background:#fff}
+.img-cell figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:4px}
 .muted{color:var(--muted);font-size:13px}
 footer{margin-top:44px;color:var(--muted);font-size:12px;font-family:var(--mono)}
 </style></head>
@@ -26,6 +29,9 @@ footer{margin-top:44px;color:var(--muted);font-size:12px;font-family:var(--mono)
 <p class="intro">Create a serious build packet for a 21-string kora-inspired hybrid instrument using `kora-design-table.xlsx` as the parametric design source. The intended first build is a learning prototype, not a declaration of traditional authority or a production-ready commercial instrument.</p>
 <section id="wolfram"><h2><span class="eyebrow">Run it — Wolfram Cloud</span>Interactive acoustic model</h2>
 <div class="wf-actions"><a class="btn primary" href="https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-starter.wl" target="_blank" rel="noopener">&#8599; Open full interactive model</a></div><iframe class="wf-frame" src="https://www.wolframcloud.com/obj/wrfcoin/Musical_Instruments/strings/kora/kora-starter.wl" title="Interactive Wolfram model" loading="lazy"></iframe><p class="muted">Live interactive acoustic model (Wolfram Cloud, Public-Execute). Drag the sliders; every value is computed from <strong>estimate placeholders</strong> — pending measurement, not fabrication authority.</p>
+</section>
+<section id="images"><h2>Concept images</h2>
+<p class="muted">Concept renders pending. Prompt set in <code>docs/image-gen-prompt.md</code>; render into <code>images/</code> (hero-render.png, macro/, etc.) via the image pipeline.</p>
 </section>
 <section id="files"><h2>Build packet</h2>
 <ul class="files"><li><a href="design.md" target="_blank">design.md</a></li><li><a href="bom.csv" target="_blank">bom.csv</a></li><li><a href="cut-list.csv" target="_blank">cut-list.csv</a></li><li><a href="visual-output-register.csv" target="_blank">visual-output-register.csv</a></li><li><a href="validation.csv" target="_blank">validation.csv</a></li><li><a href="sourcing.csv" target="_blank">sourcing.csv</a></li><li><a href="family-spec.csv" target="_blank">family-spec.csv</a></li><li><a href="risks.md" target="_blank">risks.md</a></li></ul></section>
