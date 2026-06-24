@@ -1,0 +1,22 @@
+# --- Git LFS: binary CAD + Office blobs (prevents index corruption) ---
+*.xlsx  filter=lfs diff=lfs merge=lfs -text
+*.xls   filter=lfs diff=lfs merge=lfs -text
+*.SLDPRT filter=lfs diff=lfs merge=lfs -text
+*.SLDASM filter=lfs diff=lfs merge=lfs -text
+*.SLDDRW filter=lfs diff=lfs merge=lfs -text
+*.STEP  filter=lfs diff=lfs merge=lfs -text
+*.STP   filter=lfs diff=lfs merge=lfs -text
+*.glb   filter=lfs diff=lfs merge=lfs -text
+*.pptx  filter=lfs diff=lfs merge=lfs -text
+
+# --- Keep these as diffable text (NOT lfs) ---
+*.csv   text
+*.dxf   text
+*.md    text
+*.py    text
+*.scad  text
+*.wl    text
+
+# Treat large rasters as binary (optional LFS)
+*.png   binary
+*.jpg   binary
