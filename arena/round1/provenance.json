@@ -1,0 +1,25 @@
+{
+  "entrant": "antigravity-gemini-default",
+  "exported_at": "2026-07-02T15:56:47+00:00",
+  "generated": true,
+  "instrument_id": "kora",
+  "objective": {
+    "gate": "makerbench.code_cad_arena_runner.mesh_objective_gate",
+    "objective_pass_rate": 0.5,
+    "passed": false,
+    "sub_scores": {
+      "body_count": 0.0,
+      "fits_envelope": 0.0,
+      "min_wall": 0.0,
+      "nonzero_volume": 1.0,
+      "renders": 1.0,
+      "watertight": 1.0
+    }
+  },
+  "rep": 0,
+  "run_id": "round1",
+  "schema": "makerbench-code-cad-arena-winner-v1",
+  "seed": 0,
+  "trial_id": "kora__seed0__rep0__antigravity-gemini-default",
+  "vote_wins": 2.0
+}
